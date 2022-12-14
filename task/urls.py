@@ -1,6 +1,9 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
+"""
+Created url paths for corresponding view functions 
+"""
 
 app_name = 'Task'
 

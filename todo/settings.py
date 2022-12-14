@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     
     
 ]
-
+# added whitenoise middleware too handle static files during deployment
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -132,6 +132,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# Default authentication urls for login 
 LOGIN_REDIRECT_URL = 'Task:list'
 LOGIN_URL = 'Task:login'
 LOGOUT_URL = 'Task:logout'
