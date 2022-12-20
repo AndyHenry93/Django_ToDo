@@ -1,9 +1,17 @@
+"""
+imported packages:
+redirect from shortcuts - forward the use back to the root list view 
+login_required from auth.decorators - only authenticated users can see certain features
+Task - Imported Task from models 
+Imported both TaskForm and UserRegistrationForm from forms
+"""
 from django.shortcuts import render,redirect
 from .models import Task
 from .forms import TaskForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
 @login_required
 def todo_list(request):
     user = request.user
@@ -17,7 +25,12 @@ def todo_list(request):
         return redirect('/')
     else:
         form = TaskForm()
-    return render(request,'task/list.html',{'tasks':tasks,'form':form,'user':user})
+    context = {
+        'tasks':tasks,
+        'form':form,
+        'user':user
+    }
+    return render(request,'task/list.html',context)
 
 @login_required
 def update_task(request,id):
