@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 """
 class:
 Task model is the main model when creating task objects
+
 the fields are as follows:
 user - foregin key to the imported User model, when that user is deleted the entire task is deleted
 title - charfield to assign a name to new task objects 
